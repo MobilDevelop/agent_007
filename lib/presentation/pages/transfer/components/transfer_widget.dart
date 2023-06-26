@@ -20,7 +20,7 @@ class TransferWidget1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Gap(ScreenSize.h10),
+      Gap(ScreenSize.h4),
       Container(
           height: 70.h,
           width: double.maxFinite,
@@ -31,6 +31,7 @@ class TransferWidget1 extends StatelessWidget {
               child: AnimatedContainer(
                   duration: const Duration(milliseconds: 800),
                   height: 60.h,
+                  alignment: Alignment.center,
                   width:
                       animationSize1 == 0 ? sizeWidth * 0.45 : animationSize1,
                   decoration: BoxDecoration(
@@ -41,7 +42,9 @@ class TransferWidget1 extends StatelessWidget {
                           AppIcons.left,
                           color: AppTheme.colors.secondary,
                         )
-                      : Container()),
+                      : Text("Kirimlar"
+                      ,maxLines: 1
+                      ,style: AppTheme.data.textTheme.headline5!.copyWith(color: AppTheme.colors.secondary))),
             ),
             Gap(sizeWidth * 0.04),
             GestureDetector(
@@ -51,6 +54,7 @@ class TransferWidget1 extends StatelessWidget {
                   height: 60.h,
                   width:
                       animationSize2 == 0 ? sizeWidth * 0.45 : animationSize2,
+                      alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: AppTheme.colors.gray,
                       borderRadius: BorderRadius.circular(15.r)),
@@ -59,7 +63,9 @@ class TransferWidget1 extends StatelessWidget {
                           AppIcons.right1,
                           color: AppTheme.colors.secondary,
                         )
-                      : Container()),
+                      :Text("Chiqimlar"
+                      ,maxLines: 1
+                      ,style: AppTheme.data.textTheme.headline5!.copyWith(color: AppTheme.colors.secondary))),
             )
           ]))
     ]);

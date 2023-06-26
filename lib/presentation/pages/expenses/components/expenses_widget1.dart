@@ -1,6 +1,7 @@
 import 'package:agent_007/presentation/assets/asset_index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 
 class ExpensesWidget1 extends StatelessWidget {
   const ExpensesWidget1({
@@ -50,11 +51,19 @@ class ExpensesWidget1 extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                height: 200,
-                width: double.maxFinite,
-                color: Colors.green,
-              )
+             Gap(ScreenSize.h10),
+             Container(
+              padding: EdgeInsets.only(right:28.w),
+               child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("12 mln", style: AppTheme.data.textTheme.displaySmall),
+                    Text("12.06.2023",
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+             ),
+             
             ],
           ),
         ),
