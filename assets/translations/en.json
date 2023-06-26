@@ -1,0 +1,32 @@
+{
+    "registration":{
+        "login":"Login"
+    },
+    "addexpenses":{
+        "title":"Yangi Xarajat"
+    },
+    "dashboard":{
+        "title":"Dashboard",
+        "salom":"Salom",
+        "bugun":"Bugun",
+        "allmoney":"Jami summa:",
+        "joriybalans":"Joriy balans:",
+        "xarajat":"Xarajatlar:"
+    },
+    "expenses":{
+        "title":"Xarajatlar"
+    },
+    "transfer":{
+        "title":"O'tkazmalar",
+        "pulotkazish":"Pul o'tkazish",
+        "cancel":"Bekor qilish",
+        "ok":"Tasdiqlash"
+    },
+    "inputs":{
+      "title":"Kirimlar"
+    },
+    "settings":{
+        "title":"Sozlamalar"
+    }
+    
+}

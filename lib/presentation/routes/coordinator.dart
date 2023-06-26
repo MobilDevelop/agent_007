@@ -1,8 +1,8 @@
-// Created by Muhammed Tolkinov on 16-September-2022
-
+import 'package:agent_007/presentation/pages/add_expenses/add_expenses_page.dart';
 import 'package:agent_007/presentation/pages/home/home_page.dart';
 import 'package:agent_007/presentation/pages/login/login_page.dart';
 import 'package:agent_007/presentation/pages/registration/registration_page.dart';
+import 'package:agent_007/presentation/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,9 +11,25 @@ import 'entity/routes.dart';
 //final localSource = inject<LocalSource>();
 
 final GoRouter router = GoRouter(
-    initialLocation: Routes.home.path,
+    initialLocation: Routes.splashscreen.path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
+      GoRoute(
+        name: Routes.splashscreen.name,
+        path: Routes.splashscreen.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: const SplashScreen(),
+        ),
+      ),
+      GoRoute(
+        name: Routes.addexpenses.name,
+        path: Routes.addexpenses.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: const AddExpensesPage(),
+        ),
+      ),
       GoRoute(
         name: Routes.home.name,
         path: Routes.home.path,

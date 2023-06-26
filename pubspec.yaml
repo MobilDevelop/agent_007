@@ -24,8 +24,9 @@ dependencies:
   dotted_line: ^3.1.0
   syncfusion_flutter_sliders: ^21.1.38
   dotted_border: ^2.0.0+3
-  image_picker: ^0.8.7+2
+  image_picker: ^0.8.7+2 k
   salomon_bottom_bar: ^3.3.2
+  awesome_dialog: ^3.1.0
 
   # Animations
   flutter_bounce: ^1.1.0

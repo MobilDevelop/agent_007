@@ -1,6 +1,7 @@
 import 'package:agent_007/aplication/home/home_cubit.dart';
 import 'package:agent_007/aplication/home/home_state.dart';
 import 'package:agent_007/presentation/assets/asset_index.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
                             AppIcons.home,
                             height: 25.h,
                           ),
-                          title: const Text("Dashboard"),
+                          title: Text(tr('dashboard.title')),
                           selectedColor: AppTheme.colors.primary,
                           activeIcon: SvgPicture.asset(
                             AppIcons.home,
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
                             AppIcons.cost,
                             height: 25.h,
                           ),
-                          title: const Text("Xarajatlar"),
+                          title: Text(tr('expenses.title')),
                           selectedColor: AppTheme.colors.primary,
                           activeIcon: SvgPicture.asset(
                             AppIcons.cost,
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
                             AppIcons.transfer,
                             height: 25.h,
                           ),
-                          title: const Text("O'tkazmalar"),
+                          title: Text(tr('transfer.title')),
                           selectedColor: AppTheme.colors.primary,
                           activeIcon: SvgPicture.asset(
                             AppIcons.transfer,
@@ -66,20 +67,20 @@ class HomePage extends StatelessWidget {
                             height: 35.h,
                           )),
 
-                      /// Search
-                      SalomonBottomBarItem(
-                        icon: SvgPicture.asset(
-                          AppIcons.addMoney,
-                          height: 25.h,
-                        ),
-                        title: const Text("Kirimlar"),
-                        activeIcon: SvgPicture.asset(
-                          AppIcons.addMoney,
-                          color: AppTheme.colors.primary,
-                          height: 35.h,
-                        ),
-                        selectedColor: AppTheme.colors.primary,
-                      ),
+                      // /// Search
+                      // SalomonBottomBarItem(
+                      //   icon: SvgPicture.asset(
+                      //     AppIcons.addMoney,
+                      //     height: 25.h,
+                      //   ),
+                      //   title: Text(tr('inputs.title')),
+                      //   activeIcon: SvgPicture.asset(
+                      //     AppIcons.addMoney,
+                      //     color: AppTheme.colors.primary,
+                      //     height: 35.h,
+                      //   ),
+                      //   selectedColor: AppTheme.colors.primary,
+                      // ),
 
                       /// Profile
                       SalomonBottomBarItem(
@@ -87,7 +88,7 @@ class HomePage extends StatelessWidget {
                           AppIcons.setting,
                           height: 25.h,
                         ),
-                        title: const Text("Sozlamalar"),
+                        title: Text(tr('settings.title')),
                         activeIcon: SvgPicture.asset(
                           AppIcons.setting,
                           color: AppTheme.colors.primary,
