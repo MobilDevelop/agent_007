@@ -1,4 +1,6 @@
 import 'package:agent_007/aplication/registration/registration_state.dart';
+import 'package:agent_007/domain/provider/registration.dart';
+import 'package:agent_007/infrasutruktura/models/registration/registration_send.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +14,13 @@ class RegistrationCubib extends Cubit<RegistrationState> {
     String login = loginController.text.trim();
     String password = passwordController.text.trim();
     if (login.isEmpty || password.isEmpty) {
-      print("no data");
-    } else {}
+     emit(const RegistrationIsEmpty("ma'lumotlarni to'ldiring"));
+    } else {
+      Registration registration = Registration(login: login,parol: password);
+      bool check = await RegistrationService().registration(registration);
+      if(check) emit(RegistrationNextHome());
+      
+
+    }
   }
 }

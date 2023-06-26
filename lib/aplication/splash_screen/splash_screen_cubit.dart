@@ -8,6 +8,11 @@ class SplashScreenCubit extends Cubit<SplashScreenState> {
   }
 
   void init() async {
-    bool? type = await LocalSource.getInfo("islogin");
+    String type = await LocalSource.getInfo("token");
+    if(type.isNotEmpty){
+       emit(SplashScreenNextHome());
+    }else{
+      emit(SplashScreenNextRegistration());
+    }
   }
 }

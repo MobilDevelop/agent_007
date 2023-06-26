@@ -11,7 +11,7 @@ class LocalSource {
 
   static getInfo(String key) async {
     String json = await box.get(key) ?? '';
-    return jsonDecode(json);
+    return json;
   }
 
   /// Clear Profile

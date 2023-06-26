@@ -11,7 +11,7 @@ import 'entity/routes.dart';
 //final localSource = inject<LocalSource>();
 
 final GoRouter router = GoRouter(
-    initialLocation: Routes.splashscreen.path,
+    initialLocation: Routes.splashscreen .path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
       GoRoute(
