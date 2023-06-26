@@ -15,7 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
     const Dashboard(),
     const ExpensesPage(),
     const TransferPage(),
-    const InputsPage(),
+    //const InputsPage(),
     const SettingPage()
   ];
 

@@ -12,6 +12,10 @@ abstract class BaseColors {
   Color get stroke => const Color.fromRGBO(50, 58, 70, 1);
   Color get information => const Color.fromRGBO(55, 135, 255, 1);
 
+  Color get yellow => const Color.fromRGBO(255, 255, 0, 1);
+
+  Color get green => const Color.fromRGBO(84, 191, 20, 1);
+
   Color get red => const Color.fromRGBO(213, 57, 64, 1);
   Color get red900 => const Color.fromRGBO(233, 57, 64, 1);
 

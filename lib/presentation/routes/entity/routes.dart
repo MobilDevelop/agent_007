@@ -14,6 +14,10 @@ class Routes implements Coordinate {
     name: 'home_page',
     path: '/home',
   );
+  static const splashscreen = Routes._(
+    name: 'splash_page',
+    path: '/splash',
+  );
   static const login = Routes._(
     name: 'login_page',
     path: '/login',
@@ -21,6 +25,10 @@ class Routes implements Coordinate {
   static const registration = Routes._(
     name: 'registration_page',
     path: '/registration',
+  );
+  static const addexpenses = Routes._(
+    name: 'add_expenses_page',
+    path: '/sadd_expenses',
   );
 
   @override

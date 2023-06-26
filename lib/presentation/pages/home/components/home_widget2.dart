@@ -1,5 +1,6 @@
 import 'package:agent_007/presentation/assets/res/screen_size.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -33,7 +34,8 @@ class HomeWidget2 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Jami summa:", style: AppTheme.data.textTheme.displayLarge),
+              Text(tr('dashboard.allmoney'),
+                  style: AppTheme.data.textTheme.displayLarge),
               Text("10 mln", style: AppTheme.data.textTheme.displayLarge),
             ],
           ),
@@ -52,7 +54,7 @@ class HomeWidget2 extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text("Joriy balans:",
+                  Text(tr('dashboard.joriybalans'),
                       style: AppTheme.data.textTheme.bodyLarge),
                   Gap(ScreenSize.w6),
                   Container(
@@ -66,7 +68,8 @@ class HomeWidget2 extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text("Xarajat:", style: AppTheme.data.textTheme.bodyLarge),
+                  Text(tr('dashboard.xarajat'),
+                      style: AppTheme.data.textTheme.bodyLarge),
                   Gap(ScreenSize.w6),
                   Container(
                     height: 20.h,
