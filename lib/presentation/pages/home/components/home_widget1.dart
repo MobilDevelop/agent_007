@@ -8,9 +8,9 @@ import 'package:gap/gap.dart';
 
 class HomeWidget1 extends StatelessWidget {
   const HomeWidget1({
-    super.key,
+    super.key, required this.name,
   });
-
+   final String name;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,12 +34,12 @@ class HomeWidget1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "${tr('dashboard.salom')} Muhammadayubxon",
+            "${tr('dashboard.salom')} $name",
             style: AppTheme.data.textTheme.headlineMedium,
           ),
           Gap(ScreenSize.h6),
           Text(
-            "${tr('dashborad.bugun')} ${Helper.formatDate()}",
+            "${tr('dashboard.bugun')} ${Helper.formatDate()}",
             style: AppTheme.data.textTheme.headlineMedium,
           )
         ],

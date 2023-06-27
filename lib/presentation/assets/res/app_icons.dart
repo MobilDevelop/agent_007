@@ -14,6 +14,8 @@ class AppIcons {
   static const String bottom2 = 'assets/icons/bottom2.svg';
   static const String left = 'assets/icons/left.svg';
   static const String right1 = 'assets/icons/right.svg';
+  static const String top = 'assets/icons/top.svg';
+  static const String leftRight = 'assets/icons/left-right.svg';
 
   static const String down = 'assets/images/down.png';
   static const String up = 'assets/images/up.png';

@@ -9,7 +9,7 @@ class LocalSource {
     await box.put(key, json);
   }
 
-  static getInfo(String key) async {
+  static Future<String> getInfo(String key) async {
     String json = await box.get(key) ?? '';
     return json;
   }

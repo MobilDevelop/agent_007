@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:agent_007/presentation/assets/theme/app_theme.dart';
 import 'package:agent_007/presentation/pages/animation_loading/loading_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -70,7 +71,7 @@ class MyPainter extends CustomPainter {
 
   void paint(Canvas canvas, Size size) {
     Paint myArc = Paint()
-      ..color = Colors.green
+      ..color = AppTheme.colors.primary
       ..style = PaintingStyle.stroke
       ..strokeWidth = 5
       ..strokeCap = StrokeCap.round;

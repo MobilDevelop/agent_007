@@ -1,7 +1,9 @@
 import 'package:agent_007/aplication/dashboard/dashboard_cubit.dart';
 import 'package:agent_007/aplication/dashboard/dashboard_state.dart';
+import 'package:agent_007/infrasutruktura/helper_method/helper_method.dart';
 import 'package:agent_007/presentation/assets/res/screen_size.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
+import 'package:agent_007/presentation/pages/animation_loading/loading.dart';
 import 'package:agent_007/presentation/pages/home/components/home_widget1.dart';
 import 'package:agent_007/presentation/pages/home/components/home_widget2.dart';
 import 'package:agent_007/presentation/pages/home/components/home_widget3.dart';
@@ -28,29 +30,36 @@ class Dashboard extends StatelessWidget {
                         title: Text(tr('dashboard.title'),
                             style: AppTheme.data.textTheme.displaySmall!
                                 .copyWith(color: AppTheme.colors.secondary))),
-                    body: Container(
-                      height: double.maxFinite,
-                      width: double.maxFinite,
-                      padding: EdgeInsets.only(
-                          bottom: ScreenSize.h12, top: ScreenSize.h8),
-                      child: Column(
-                        children: [
-                          Expanded(flex: 1, child: HomeWidget1()),
-                          Expanded(flex: 4, child: HomeWidget2()),
-                          Expanded(
-                              flex: 1,
-                              child: HomeWidget3(
-                                coast: '8 mln',
-                                title: tr('dashboard.joriybalans'),
-                              )),
-                          Expanded(
-                              flex: 1,
-                              child: HomeWidget3(
-                                coast: '2 mln',
-                                title: tr('dashboard.xarajat'),
-                              )),
-                        ],
-                      ),
+                    body: Stack(
+                      children: [
+                        Container(
+                          height: double.maxFinite,
+                          width: double.maxFinite,
+                          padding: EdgeInsets.only(
+                              bottom: ScreenSize.h12, top: ScreenSize.h8),
+                          child: Column(
+                            children: [
+                              Expanded(flex: 1, child: HomeWidget1(name: cubit.model.name)),
+                              Expanded(flex: 4, child: HomeWidget2(model: cubit.model)),
+                              Expanded(
+                                  flex: 1,
+                                  child: HomeWidget3(
+                                    coast: Helper.toProcessCost(cubit.model.currentBalans),
+                                    title: tr('dashboard.joriybalans'),
+                                  )),
+                              Expanded(
+                                  flex: 1,
+                                  child: HomeWidget3(
+                                    coast: Helper.toProcessCost(cubit.model.expenses),
+                                    title: tr('dashboard.xarajat'),
+                                  )),
+                            ],
+                          ),
+                        ),
+                       Visibility(
+                        visible: cubit.loading,
+                        child: const Loading()) 
+                      ],
                     ),
                   ));
         },

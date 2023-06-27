@@ -6,12 +6,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class DashboardCubit extends Cubit<DashboardState> {
   DashboardCubit() : super(DashboardInitial()){
     init();
-  }
+  } 
+  DashboardModel model =DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: '');
+  
+  bool loading =true;
+
 
  
  void init()async{
-  DashboardModel model = await DashboardService().registration();
-  print(model);
+   model = await DashboardService().registration();
+   loading =false;
+   emit(DashboardInitial());
  }
 
 }

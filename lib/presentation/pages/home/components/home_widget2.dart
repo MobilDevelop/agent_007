@@ -1,3 +1,5 @@
+import 'package:agent_007/infrasutruktura/helper_method/helper_method.dart';
+import 'package:agent_007/infrasutruktura/models/dashboard/dashboard_model.dart';
 import 'package:agent_007/presentation/assets/res/screen_size.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -7,9 +9,9 @@ import 'package:gap/gap.dart';
 
 class HomeWidget2 extends StatelessWidget {
   const HomeWidget2({
-    super.key,
+    super.key, required this.model,
   });
-
+  final DashboardModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,16 +38,16 @@ class HomeWidget2 extends StatelessWidget {
             children: [
               Text(tr('dashboard.allmoney'),
                   style: AppTheme.data.textTheme.displayLarge),
-              Text("10 mln", style: AppTheme.data.textTheme.displayLarge),
+              Text(Helper.toProcessCost(model.allPrice.toString()), style: AppTheme.data.textTheme.displayLarge),
             ],
           ),
           SizedBox(
             height: 170.w,
             width: 170.w,
             child: CircularProgressIndicator(
-              value: 70 / 100,
-              color: AppTheme.colors.primary,
-              backgroundColor: AppTheme.colors.gray,
+              value: double.parse(model.expenses) /double.parse(model.currentBalans),
+              color: AppTheme.colors.gray,
+              backgroundColor: AppTheme.colors.primary,
               strokeWidth: 45,
             ),
           ),

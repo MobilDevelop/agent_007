@@ -8,5 +8,6 @@ class Constants {
 
   static String registration = '${baseUrl+additional}login';
   static String dashboard = '${additional}mobile/dashboard';
+  static String expenses = '${additional}costs';
 }
 

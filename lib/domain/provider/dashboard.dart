@@ -13,8 +13,8 @@ class DashboardService {
       final model= DashboardModel.fromJson(response.data);
      return Future.value(model);
     } catch (e) {
-      print(e);
-      return Future.value(DashboardModel());
+
+      return Future.value(DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: ''));
     }
 
 
