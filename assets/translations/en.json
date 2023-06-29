@@ -3,7 +3,8 @@
         "login":"Login"
     },
     "addexpenses":{
-        "title":"Yangi Xarajat"
+        "title":"Yangi Xarajat",
+         "empty":"Ma'lumotlarni to'ldiring"
     },
     "dashboard":{
         "title":"Dashboard",

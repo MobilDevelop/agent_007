@@ -1,5 +1,5 @@
-import 'package:agent_007/aplication/add_transfer/add_expenses_cubit.dart';
-import 'package:agent_007/aplication/add_transfer/add_expenses_state.dart';
+import 'package:agent_007/aplication/add_expenses/add_expenses_cubit.dart';
+import 'package:agent_007/aplication/add_expenses/add_expenses_state.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

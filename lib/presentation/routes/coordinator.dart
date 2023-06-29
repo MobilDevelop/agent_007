@@ -11,7 +11,7 @@ import 'entity/routes.dart';
 //final localSource = inject<LocalSource>();
 
 final GoRouter router = GoRouter(
-    initialLocation: Routes.splashscreen .path,
+    initialLocation: Routes.splashscreen.path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
       GoRoute(
@@ -56,26 +56,3 @@ final GoRouter router = GoRouter(
       ),
     ],
     errorBuilder: (context, state) => const SizedBox());
-
-CustomTransitionPage _customTransitionPage({
-  required Widget child,
-  required ValueKey<String> key,
-}) {
-  return CustomTransitionPage(
-    key: key,
-    child: child,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0, 1);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      final tween =
-          Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:agent_007/aplication/add_transfer/add_expenses_cubit.dart';
+import 'package:agent_007/aplication/add_expenses/add_expenses_cubit.dart';
 import 'package:agent_007/aplication/app_manager/app_manager_cubit.dart';
 import 'package:agent_007/aplication/registration/registration_cubit.dart';
 import 'package:agent_007/aplication/settings/settings_cubit.dart';
