@@ -6,15 +6,15 @@ import 'package:dio/dio.dart';
 class DashboardService {
   
 
-   Future<DashboardModel> registration()async{
+   Future<DashboardModel> init()async{
     final Dio dio = MyDio().dio();
     try {
       Response response = await dio.get(Constants.dashboard);
-      final model= DashboardModel.fromJson(response.data);
+      final model= DashboardModel.fromJson(response.data['data']);
      return Future.value(model);
     } catch (e) {
 
-      return Future.value(DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: ''));
+      return Future.value(DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: '',payed: ''));
     }
 
 

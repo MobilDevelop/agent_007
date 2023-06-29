@@ -4,7 +4,11 @@
     },
     "addexpenses":{
         "title":"Yangi Xarajat",
-         "empty":"Ma'lumotlarni to'ldiring"
+         "empty":"Ma'lumotlarni to'ldiring",
+         "obyekt":"Obyektni tanlang",
+         "harajat":"Harajat turini tanlang",
+         "narxi":"Harajat narxi",
+         "izoh":"Izoh"
     },
     "dashboard":{
         "title":"Dashboard",
@@ -15,7 +19,17 @@
         "xarajat":"Xarajatlar:"
     },
     "expenses":{
-        "title":"Xarajatlar"
+        "title":"Xarajatlar",
+        "message":"Muvofaqqiyatli saqlandi",
+        "narxi":"Tovar narxi:",
+        "tolangan":"To'langan:",
+        "status":"Status:",
+        "obyekt":"Obyekt:",
+        "harajat":"Harajat turi:",
+        "izoh":"Izoh:",
+        "empty":"Ma'lumotlarni to'ldiring",
+        "error":"Hatolik yuz berdi!",
+        "tolov":"To'lov qilish"
     },
     "transfer":{
         "title":"O'tkazmalar",
@@ -28,6 +42,10 @@
     },
     "settings":{
         "title":"Sozlamalar"
+    },
+    "universal":{
+        "error":"Iltimos dasturni qayta ishga tushuring"
     }
+
     
 }

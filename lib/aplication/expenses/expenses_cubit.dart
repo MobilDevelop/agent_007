@@ -1,32 +1,50 @@
 import 'package:agent_007/aplication/expenses/expenses_state.dart';
 import 'package:agent_007/domain/provider/expenses.dart';
 import 'package:agent_007/infrasutruktura/models/expenses/get_expenses.dart';
-import 'package:agent_007/presentation/assets/asset_index.dart';
+import 'package:agent_007/infrasutruktura/models/expenses/payment_expenses.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ExpensesCubit extends Cubit<ExpensesState> {
   ExpensesCubit() : super(ExpensesInitial()) {
     init();
   }
-  int activId = -1;
-  double height = 60.0.h;
   bool loding = true;
+  bool paginationCheck=true;
+  int pagination =1;
+  final paymentController = TextEditingController();
   List<ExpensesInfo> items = [];
+  final scrollController = ScrollController();
 
   void init() async {
-    items = await ExpensesService().getInfo();
+    if(paginationCheck){
+    List<ExpensesInfo> newPage = await ExpensesService().getInfo(pagination);
+    if(newPage.isNotEmpty){
+       pagination++;
+      items.addAll(newPage);
+    }else{
+      paginationCheck=false;
+    }
     loding = false;
     emit(ExpensesInitial());
-  }
-
-  void activChoose(int id) {
-    if (activId == id) {
-      activId = -1;
-      height = 60.0.h;
-    } else {
-      activId = id;
-      height = 260.0.h;
+    }else{
+     loding=false;
+     emit(ExpensesInitial()); 
     }
-    emit(ExpensesInitial());
+  }
+  void payment(int id)async{
+    String pay = paymentController.text.trim();
+    if(pay.isNotEmpty){
+      final payment = PaymentExpenses(id: id, cost: pay);
+      bool check = await ExpensesService().paymentMoney(payment);
+      if(check){
+        emit(ExpensesSucces(tr('espenses.message')));
+      }else{
+       emit(ExpensesError(tr('expenses.error')));
+      }
+    }else{
+      emit(ExpensesError(tr('expenses.empty')));
+    }
   }
 }

@@ -40,7 +40,7 @@ class Dashboard extends StatelessWidget {
                           child: Column(
                             children: [
                               Expanded(flex: 1, child: HomeWidget1(name: cubit.model.name)),
-                              Expanded(flex: 4, child: HomeWidget2(model: cubit.model)),
+                              Expanded(flex: 6, child: HomeWidget2(model: cubit.model)),
                               Expanded(
                                   flex: 1,
                                   child: HomeWidget3(
@@ -48,6 +48,12 @@ class Dashboard extends StatelessWidget {
                                     title: tr('dashboard.joriybalans'),
                                   )),
                               Expanded(
+                                  flex: 1,
+                                  child: HomeWidget3(
+                                    coast: Helper.toProcessCost(cubit.model.expenses),
+                                    title: tr('dashboard.xarajat'),
+                                  )),
+                                  Expanded(
                                   flex: 1,
                                   child: HomeWidget3(
                                     coast: Helper.toProcessCost(cubit.model.expenses),

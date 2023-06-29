@@ -122,7 +122,7 @@ class RegistrationPage extends StatelessWidget {
               ],
             )),
           ),
-          const Visibility(visible: false, child: Loading())
+           Visibility(visible: cubit.loading, child: const Loading())
         ],
       ))
       );

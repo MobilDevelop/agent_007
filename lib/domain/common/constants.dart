@@ -6,4 +6,6 @@ class Constants {
   static String registration = '${baseUrl + additional}login';
   static String dashboard = '${additional}mobile/dashboard';
   static String expenses = '${additional}costs';
+  static String location = '${additional}location/all_active';
+  static String cosyType = '${additional}cost_type/all_active';
 }

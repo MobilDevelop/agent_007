@@ -5,6 +5,7 @@ import 'package:agent_007/presentation/routes/coordinator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:requests_inspector/requests_inspector.dart';
 
 class AppWidget extends StatelessWidget {
@@ -33,16 +34,7 @@ class AppWidget extends StatelessWidget {
             routeInformationParser: router.routeInformationParser,
             routeInformationProvider: router.routeInformationProvider,
             routerDelegate: router.routerDelegate,
-            builder: (context, child) {
-              return MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-                child: child ??
-                    const Material(
-                      color: Colors.white,
-                      child: SizedBox(),
-                    ),
-              );
-            },
+            builder: EasyLoading.init()
           ),
         );
       }

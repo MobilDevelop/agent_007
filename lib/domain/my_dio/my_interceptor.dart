@@ -2,6 +2,8 @@
 
 import 'package:agent_007/infrasutruktura/local_source/local_source.dart';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class MyInterceptor extends Interceptor {
   // final String token;
@@ -11,11 +13,10 @@ class MyInterceptor extends Interceptor {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     print(err.response);
-
+    EasyLoading.showError("message: ${err.response?.statusMessage??''},  status code:${err.response?.statusCode}");
     if (err.response?.statusCode == 401) {
-      //Navigator.pop(context);
-      // Navigator.of(context)
-      //   .pushReplacement(MaterialPageRoute(builder: (context) => const LoginPage()));
+     EasyLoading.showError(tr('universal.error'));
+     LocalSource.clearProfile();
     }
     super.onError(err, handler);
   }

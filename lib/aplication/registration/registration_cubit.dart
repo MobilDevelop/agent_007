@@ -9,6 +9,8 @@ class RegistrationCubib extends Cubit<RegistrationState> {
 
   final loginController = TextEditingController();
   final passwordController = TextEditingController();
+  bool loading = false;
+
 
   void sendInfo() async {
     String login = loginController.text.trim();
@@ -16,9 +18,14 @@ class RegistrationCubib extends Cubit<RegistrationState> {
     if (login.isEmpty || password.isEmpty) {
      emit(const RegistrationIsEmpty("ma'lumotlarni to'ldiring"));
     } else {
+      loading =true;
+      emit(RegistrationInitial());
       Registration registration = Registration(login: login,parol: password);
       bool check = await RegistrationService().registration(registration);
-      if(check) emit(RegistrationNextHome());
+      if(check){emit(RegistrationNextHome());}else{
+        loading=false;
+        emit(const RegistrationIsEmpty("server error"));
+      } 
       
 
     }

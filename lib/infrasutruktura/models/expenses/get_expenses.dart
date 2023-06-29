@@ -26,7 +26,7 @@ class ExpensesInfo{
     required this.paybtn});
 
     factory ExpensesInfo.fromJson(Map<String,dynamic> json)=>ExpensesInfo(
-      id: json['id'], 
+      id: json['id']??0, 
       name: json['auth']['full_name'],
       location: json['location']['title']??'', 
       costtype: json['cost_type']['title']??'', 
