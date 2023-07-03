@@ -11,9 +11,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class TransferService {
   final Dio dio = MyDio().dio();
 
-  Future<List<GetTransfer>> getTransfer() async {
+  Future<List<GetTransfer>> getTransfer(int page) async {
     try {
-      Response response = await dio.get(Constants.transfer);
+      Response response = await dio.get(Constants.transfer,data: {'page':page});
       print(response);
       return Future.value(transferFromMap(response.data['data']));
     } catch (error) {
@@ -37,6 +37,17 @@ class TransferService {
   Future<bool> transferConfirmation(int id) async {
     try {
       Response response = await dio.put(Constants.confirmation + id.toString());
+      print(response);
+      return Future.value(true);
+    } catch (error) {
+      EasyLoading.showInfo(error.toString());
+      return Future.value(false);
+    }
+  }
+  
+  Future<bool> transferCancellation(int id) async {
+    try {
+      Response response = await dio.put(Constants.cancellation + id.toString());
       print(response);
       return Future.value(true);
     } catch (error) {

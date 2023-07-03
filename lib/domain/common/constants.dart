@@ -11,6 +11,7 @@ class Constants {
   static String moneytransfer = '${additional}cash_operations';
   static String allAgent = '${additional}cashbox/active_cashboxes';
   static String confirmation = '${additional}cash_operation/income_other_cash/';
+  static String cancellation = '${additional}cash_operation/cancel_income_other_cash/';
 
   static String expenses = '${additional}costs';
   static String payment = '${additional}cost/pay_the_cost/';

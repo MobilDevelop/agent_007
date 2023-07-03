@@ -18,6 +18,8 @@ class ExpensesCubit extends Cubit<ExpensesState> {
   final scrollController = ScrollController();
 
   void init() async {
+    loading =true;
+    emit(ExpensesInitial());
     if (paginationCheck) {
       List<ExpensesInfo> newPage = await ExpensesService().getInfo(pagination);
       if (newPage.isNotEmpty) {
@@ -30,7 +32,7 @@ class ExpensesCubit extends Cubit<ExpensesState> {
       emit(ExpensesInitial());
     } else {
       loading = false;
-      emit(ExpensesInitial());
+      
     }
   }
 

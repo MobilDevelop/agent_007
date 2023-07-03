@@ -8,6 +8,7 @@ class GetTransfer {
   String description;
   String status;
   String date;
+  String type;
 
   GetTransfer(
       {required this.id,
@@ -15,13 +16,15 @@ class GetTransfer {
       required this.amount,
       required this.description,
       required this.status,
+      required this.type,
       required this.date});
 
   factory GetTransfer.fromJson(Map<String, dynamic> json) => GetTransfer(
       id: json['id'] ?? 0,
-      title: json['title'] ?? '',
-      amount: json[''] ?? 0,
-      description: json[''] ?? '',
-      status: json[''] ?? '',
-      date: json[''] ?? '');
+      title: json['cashier']['full_name'] ?? '',
+      amount: json['amount'].toString(),
+      description: json['description'] ?? '',
+      status: json['status'] ?? '',
+      type: json['type']??'',
+      date: json['date'] ?? '');
 }

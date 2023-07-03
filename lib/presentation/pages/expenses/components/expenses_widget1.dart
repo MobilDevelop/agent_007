@@ -95,126 +95,124 @@ class ExpensesWidget1 extends StatelessWidget {
                 color:
                     item.paybtn ? AppTheme.colors.red : AppTheme.colors.primary,
                 width: 2)),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(Helper.dateFormat(item.date),
-                      style: AppTheme.data.textTheme.displaySmall),
-                  Row(
-                    children: [
-                      Text("№: ",
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Text(item.id.toString(),
-                          style: AppTheme.data.textTheme.displaySmall),
-                    ],
-                  ),
-                ],
-              ),
-              Gap(ScreenSize.h16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(tr('expenses.narxi'),
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Text(Helper.toProcessCost(item.amount),
-                          style: AppTheme.data.textTheme.displaySmall),
-                    ],
-                  ),
-                  SvgPicture.asset(AppIcons.leftRight,
-                      height: 20.h, color: Colors.grey),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(tr('expenses.tolangan'),
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Text(Helper.toProcessCost(item.payed),
-                          style: AppTheme.data.textTheme.displaySmall),
-                    ],
-                  ),
-                ],
-              ),
-              Gap(ScreenSize.h16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(tr('expenses.status'),
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Container(
-                        margin: EdgeInsets.only(left: ScreenSize.w6),
-                        height: 20.h,
-                        width: 20.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4.r),
-                            color: item.paybtn
-                                ? AppTheme.colors.red
-                                : AppTheme.colors.primary),
-                      )
-                    ],
-                  ),
-                  Text(item.status,
-                      style: AppTheme.data.textTheme.displaySmall),
-                ],
-              ),
-              Gap(ScreenSize.h16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(tr('expenses.obyekt'),
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Text(item.location,
-                          style: AppTheme.data.textTheme.displaySmall),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(tr('expenses.harajat'),
-                          style: AppTheme.data.textTheme.bodyLarge!
-                              .copyWith(color: Colors.grey)),
-                      Text(item.costtype,
-                          style: AppTheme.data.textTheme.displaySmall),
-                    ],
-                  ),
-                ],
-              ),
-              Gap(ScreenSize.h16),
-              DottedLine(
-                dashColor: AppTheme.colors.gray,
-              ),
-              Gap(ScreenSize.h6),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(tr('expenses.izoh'),
-                      style: AppTheme.data.textTheme.bodyLarge!
-                          .copyWith(color: Colors.grey)),
-                  Text(item.name,
-                      style: AppTheme.data.textTheme.labelSmall!
-                          .copyWith(color: Colors.grey)),
-                ],
-              ),
-              Gap(ScreenSize.h12),
-              SizedBox(
-                  width: double.maxFinite,
-                  child: Text(item.deskription, textAlign: TextAlign.left))
-            ],
-          ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(Helper.dateFormat(item.date),
+                    style: AppTheme.data.textTheme.displaySmall),
+                Row(
+                  children: [
+                    Text("№: ",
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(item.id.toString(),
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+              ],
+            ),
+            Gap(ScreenSize.h16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(tr('expenses.narxi'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(Helper.toProcessCost(item.amount),
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+                SvgPicture.asset(AppIcons.leftRight,
+                    height: 20.h, color: Colors.grey),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(tr('expenses.tolangan'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(Helper.toProcessCost(item.payed),
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+              ],
+            ),
+            Gap(ScreenSize.h16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(tr('expenses.status'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Container(
+                      margin: EdgeInsets.only(left: ScreenSize.w6),
+                      height: 20.h,
+                      width: 20.w,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4.r),
+                          color: item.paybtn
+                              ? AppTheme.colors.red
+                              : AppTheme.colors.primary),
+                    )
+                  ],
+                ),
+                Text(item.status,
+                    style: AppTheme.data.textTheme.displaySmall),
+              ],
+            ),
+            Gap(ScreenSize.h16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(tr('expenses.obyekt'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(item.location,
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(tr('expenses.harajat'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(item.costtype,
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
+              ],
+            ),
+            Gap(ScreenSize.h16),
+            DottedLine(
+              dashColor: AppTheme.colors.gray,
+            ),
+            Gap(ScreenSize.h6),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(tr('expenses.izoh'),
+                    style: AppTheme.data.textTheme.bodyLarge!
+                        .copyWith(color: Colors.grey)),
+                Text(item.name,
+                    style: AppTheme.data.textTheme.labelSmall!
+                        .copyWith(color: Colors.grey)),
+              ],
+            ),
+            Gap(ScreenSize.h12),
+            SizedBox(
+                width: double.maxFinite,
+                child: Text(item.deskription, textAlign: TextAlign.left))
+          ],
         ),
       ),
     );

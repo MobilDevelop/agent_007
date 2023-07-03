@@ -14,7 +14,7 @@ class MyInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) {
     print(err.response);
     EasyLoading.showError(
-        "message: ${err.response?.statusMessage ?? ''},  status code:${err.response?.statusCode}");
+        "message: ${err.response ?? ''},  status code:${err.response?.statusCode}");
     if (err.response?.statusCode == 401) {
       EasyLoading.showInfo(tr('universal.error'));
       LocalSource.clearProfile();

@@ -16,7 +16,8 @@
         "bugun":"Bugun",
         "allmoney":"Jami summa:",
         "joriybalans":"Joriy balans:",
-        "xarajat":"Xarajatlar:"
+        "xarajat":"Xarajatlar:",
+        "qarzdorlik":"Qarzdorlik:"
     },
     "expenses":{
         "title":"Xarajatlar",
@@ -38,7 +39,9 @@
         "ok":"Tasdiqlash",
         "izoh":"Izoh...",
         "amount":"Summani kiriting",
-        "agent":"Agentni tanlang"
+        "agent":"Agentni tanlang",
+        "summa":"O'tkazma summasi:",
+        "otkazuvchi":"O'tkazuvchi:"
 
     },
     "inputs":{
@@ -48,7 +51,9 @@
         "title":"Sozlamalar"
     },
     "universal":{
-        "error":"Iltimos dasturni qayta ishga tushuring"
+        "error":"Iltimos dasturni qayta ishga tushuring",
+        "succes":"Amaliyot bajarildi",
+         "err":"Qandaydir hatolik yuz berdi"
     }
 
     

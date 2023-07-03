@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-class HomeWidget1 extends StatelessWidget {
-  const HomeWidget1({
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({
     super.key, required this.name,
   });
    final String name;
@@ -16,9 +16,9 @@ class HomeWidget1 extends StatelessWidget {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.symmetric(
-          vertical: ScreenSize.h8, horizontal: ScreenSize.w12),
+          vertical: ScreenSize.h4, horizontal: ScreenSize.w12),
       padding: EdgeInsets.symmetric(
-          horizontal: ScreenSize.w10, vertical: ScreenSize.h10),
+          horizontal: ScreenSize.w10, vertical: ScreenSize.h6),
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
           color: AppTheme.colors.secondary,
@@ -37,7 +37,7 @@ class HomeWidget1 extends StatelessWidget {
             "${tr('dashboard.salom')} $name",
             style: AppTheme.data.textTheme.headlineMedium,
           ),
-          Gap(ScreenSize.h6),
+          Gap(ScreenSize.h4),
           Text(
             "${tr('dashboard.bugun')} ${Helper.formatDate()}",
             style: AppTheme.data.textTheme.headlineMedium,

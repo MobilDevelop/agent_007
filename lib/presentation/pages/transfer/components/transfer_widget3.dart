@@ -25,14 +25,14 @@ class TransferWidget3 extends StatelessWidget {
   final UniversalModel? selectAgent;
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
     return Container(
-      height: 500.h,
+      height: size.height*0.7,
       width: double.maxFinite,
       padding: EdgeInsets.only(
           top: ScreenSize.h8,
-          left: width * 0.05,
-          right: width * 0.05,
+          left: size.width * 0.05,
+          right: size.width * 0.05,
           bottom: ScreenSize.h16),
       decoration: BoxDecoration(
           color: AppTheme.colors.secondary,
@@ -52,12 +52,9 @@ class TransferWidget3 extends StatelessWidget {
               ),
               Gap(ScreenSize.h10),
               Text(tr('transfer.pulotkazish'),
-                  style: AppTheme.data.textTheme.displaySmall)
-            ],
-          ),
-          Column(
-            children: [
-              DropdownSearch<UniversalModel>(
+                  style: AppTheme.data.textTheme.displaySmall),
+             Gap(ScreenSize.h16),     
+                   DropdownSearch<UniversalModel>(
                 mode: Mode.MENU,
                 showSelectedItems: false,
                 items: allAgent,
@@ -73,7 +70,7 @@ class TransferWidget3 extends StatelessWidget {
                 itemAsString: (UniversalModel? value) {
                   return value!.title.toString();
                 },
-                onChanged: (UniversalModel? value) => onChanged,
+                onChanged: (UniversalModel? value)=> onChanged(value),
               ),
               Gap(ScreenSize.h24),
               TextField(
@@ -119,6 +116,7 @@ class TransferWidget3 extends StatelessWidget {
               ),
             ],
           ),
+         
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -129,7 +127,7 @@ class TransferWidget3 extends StatelessWidget {
                 duration: const Duration(milliseconds: 150),
                 child: Container(
                   height: 55.h,
-                  width: width * 0.42,
+                  width: size.width * 0.42,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       border:
@@ -141,11 +139,14 @@ class TransferWidget3 extends StatelessWidget {
                 ),
               ),
               f_bounce.Bounce(
-                onPressed: ontap,
+                onPressed: (){
+                  ontap();
+                  Navigator.pop(context);
+                },
                 duration: const Duration(milliseconds: 150),
                 child: Container(
                   height: 55.h,
-                  width: width * 0.42,
+                  width: size.width * 0.42,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: AppTheme.colors.green,

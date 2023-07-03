@@ -13,6 +13,6 @@ class MoneyTransfer {
         "source": "other_cashbox",
         "source_id": sourceId,
         "amount": amount,
-        "desctiption": description
+        "description": description
       };
 }

@@ -72,7 +72,7 @@ class ExpensesPage extends StatelessWidget {
                             child: NotificationListener<ScrollNotification>(
                               onNotification: (notification) {
                                 if (notification.metrics.pixels ==
-                                    notification.metrics.maxScrollExtent) {
+                                    notification.metrics.maxScrollExtent&&!cubit.loading) {
                                   cubit.init();
                                   return false;
                                 }
