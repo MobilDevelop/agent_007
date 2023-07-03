@@ -14,7 +14,7 @@ final GoRouter router = GoRouter(
     initialLocation: Routes.splashscreen.path,
     debugLogDiagnostics: true,
     routes: <GoRoute>[
-      GoRoute( 
+      GoRoute(
         name: Routes.splashscreen.name,
         path: Routes.splashscreen.path,
         pageBuilder: (context, state) => MaterialPage<void>(

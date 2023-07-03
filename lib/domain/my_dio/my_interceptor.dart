@@ -13,10 +13,11 @@ class MyInterceptor extends Interceptor {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     print(err.response);
-    EasyLoading.showError("message: ${err.response?.statusMessage??''},  status code:${err.response?.statusCode}");
+    EasyLoading.showError(
+        "message: ${err.response?.statusMessage ?? ''},  status code:${err.response?.statusCode}");
     if (err.response?.statusCode == 401) {
-     EasyLoading.showError(tr('universal.error'));
-     LocalSource.clearProfile();
+      EasyLoading.showInfo(tr('universal.error'));
+      LocalSource.clearProfile();
     }
     super.onError(err, handler);
   }

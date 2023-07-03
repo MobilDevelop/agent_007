@@ -10,40 +10,41 @@ class ExpensesCubit extends Cubit<ExpensesState> {
   ExpensesCubit() : super(ExpensesInitial()) {
     init();
   }
-  bool loding = true;
-  bool paginationCheck=true;
-  int pagination =1;
+  bool loading = true;
+  bool paginationCheck = true;
+  int pagination = 1;
   final paymentController = TextEditingController();
   List<ExpensesInfo> items = [];
   final scrollController = ScrollController();
 
   void init() async {
-    if(paginationCheck){
-    List<ExpensesInfo> newPage = await ExpensesService().getInfo(pagination);
-    if(newPage.isNotEmpty){
-       pagination++;
-      items.addAll(newPage);
-    }else{
-      paginationCheck=false;
-    }
-    loding = false;
-    emit(ExpensesInitial());
-    }else{
-     loding=false;
-     emit(ExpensesInitial()); 
+    if (paginationCheck) {
+      List<ExpensesInfo> newPage = await ExpensesService().getInfo(pagination);
+      if (newPage.isNotEmpty) {
+        pagination++;
+        items.addAll(newPage);
+      } else {
+        paginationCheck = false;
+      }
+      loading = false;
+      emit(ExpensesInitial());
+    } else {
+      loading = false;
+      emit(ExpensesInitial());
     }
   }
-  void payment(int id)async{
+
+  void payment(int id) async {
     String pay = paymentController.text.trim();
-    if(pay.isNotEmpty){
-      final payment = PaymentExpenses(id: id, cost: pay);
-      bool check = await ExpensesService().paymentMoney(payment);
-      if(check){
+    if (pay.isNotEmpty) {
+      final payment = PaymentExpenses(amount: pay);
+      bool check = await ExpensesService().paymentMoney(payment, id);
+      if (check) {
         emit(ExpensesSucces(tr('espenses.message')));
-      }else{
-       emit(ExpensesError(tr('expenses.error')));
+      } else {
+        emit(ExpensesError(tr('expenses.error')));
       }
-    }else{
+    } else {
       emit(ExpensesError(tr('expenses.empty')));
     }
   }

@@ -1,3 +1,4 @@
+import 'package:agent_007/infrasutruktura/models/transfer/get_transfer.dart';
 import 'package:agent_007/presentation/assets/res/screen_size.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -11,28 +12,33 @@ class TransferWidget2 extends StatelessWidget {
     super.key,
     required this.index,
     required this.ontap,
+    required this.item,
   });
   final int index;
-  final VoidCallback ontap;
+  final Function ontap;
+  final GetTransfer item;
+
   @override
   Widget build(BuildContext context) {
     return f_bounce.Bounce(
       onPressed: () {
-        index==1? AwesomeDialog(
-                context: context,
-                animType: AnimType.scale,
-                dialogType: DialogType.success,
-                body: Center(
-                  child: Text(
-                    "O'tkazmani tasdiqlash",
-                    style: AppTheme.data.textTheme.displaySmall,
-                  ),
-                ),
-                btnCancelText: tr('transfer.cancel'),
-                btnOkText: tr('transfer.ok'),
-                btnOkOnPress: ontap,
-                btnCancelOnPress: () {})
-            .show():Container();
+        index == 1
+            ? AwesomeDialog(
+                    context: context,
+                    animType: AnimType.scale,
+                    dialogType: DialogType.success,
+                    body: Center(
+                      child: Text(
+                        "O'tkazmani tasdiqlash",
+                        style: AppTheme.data.textTheme.displaySmall,
+                      ),
+                    ),
+                    btnCancelText: tr('transfer.cancel'),
+                    btnOkText: tr('transfer.ok'),
+                    btnOkOnPress: () => ontap(item.id),
+                    btnCancelOnPress: () {})
+                .show()
+            : Container();
       },
       duration: index == 1
           ? const Duration(milliseconds: 150)

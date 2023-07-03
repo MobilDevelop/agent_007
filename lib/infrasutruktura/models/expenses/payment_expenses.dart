@@ -1,8 +1,7 @@
 class PaymentExpenses {
-  int id;
-  String cost;
+  String amount;
 
-  PaymentExpenses({required this.id, required this.cost});
+  PaymentExpenses({required this.amount});
 
-  Map<String, dynamic> toJson() => {'id': id, 'cost': cost};
+  Map<String, dynamic> toJson() => {'amount': amount};
 }

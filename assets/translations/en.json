@@ -8,7 +8,7 @@
          "obyekt":"Obyektni tanlang",
          "harajat":"Harajat turini tanlang",
          "narxi":"Harajat narxi",
-         "izoh":"Izoh"
+         "izoh":"Izoh..."
     },
     "dashboard":{
         "title":"Dashboard",
@@ -35,7 +35,11 @@
         "title":"O'tkazmalar",
         "pulotkazish":"Pul o'tkazish",
         "cancel":"Bekor qilish",
-        "ok":"Tasdiqlash"
+        "ok":"Tasdiqlash",
+        "izoh":"Izoh...",
+        "amount":"Summani kiriting",
+        "agent":"Agentni tanlang"
+
     },
     "inputs":{
       "title":"Kirimlar"
