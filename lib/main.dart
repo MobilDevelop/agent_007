@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
         providers: [
           BlocProvider<AppManagerCubit>(
-              create: (context) => AppManagerCubit()..init()),
+              create: (context) => AppManagerCubit()..init()),  
           BlocProvider(create: (context) => RegistrationCubib()),
           BlocProvider(create: (context) => AddExpensesCubit()),
           BlocProvider(create: (context) => SettingsCubit()),

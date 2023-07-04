@@ -16,17 +16,20 @@ class ExpensesWidget1 extends StatelessWidget {
     required this.item,
     required this.controller,
   });
-  final ExpensesInfo item;
+  final ExpensesInfo? item;
   final VoidCallback ontap;
   final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
+    if(item ==null){
+      return const SizedBox.shrink();
+    }
     return GestureDetector(
       onTap: () {
         controller.text =
-            (double.parse(item.amount) - double.parse(item.payed)).toString();
-        item.paybtn
+            (double.parse(item!.amount) - double.parse(item!.payed)).toString();
+        item!.paybtn
             ? AwesomeDialog(
                 context: context,
                 animType: AnimType.scale,
@@ -46,6 +49,7 @@ class ExpensesWidget1 extends StatelessWidget {
                       child: TextField(
                         controller: controller,
                         keyboardType: TextInputType.number,
+                        enableInteractiveSelection: false,
                         inputFormatters: [
                           MaskTextInputFormatter(
                               mask: '######################',
@@ -93,21 +97,21 @@ class ExpensesWidget1 extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(
                 color:
-                    item.paybtn ? AppTheme.colors.red : AppTheme.colors.primary,
+                    item!.paybtn ? AppTheme.colors.red : AppTheme.colors.primary,
                 width: 2)),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(Helper.dateFormat(item.date),
+                Text(Helper.dateFormat(item!.date),
                     style: AppTheme.data.textTheme.displaySmall),
                 Row(
                   children: [
                     Text("№: ",
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(item.id.toString(),
+                    Text(item!.id.toString(),
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -123,7 +127,7 @@ class ExpensesWidget1 extends StatelessWidget {
                     Text(tr('expenses.narxi'),
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(Helper.toProcessCost(item.amount),
+                    Text(Helper.toProcessCost(item!.amount),
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -135,7 +139,7 @@ class ExpensesWidget1 extends StatelessWidget {
                     Text(tr('expenses.tolangan'),
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(Helper.toProcessCost(item.payed),
+                    Text(Helper.toProcessCost(item!.payed),
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -156,13 +160,13 @@ class ExpensesWidget1 extends StatelessWidget {
                       width: 20.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4.r),
-                          color: item.paybtn
+                          color: item!.paybtn
                               ? AppTheme.colors.red
                               : AppTheme.colors.primary),
                     )
                   ],
                 ),
-                Text(item.status,
+                Text(item!.status,
                     style: AppTheme.data.textTheme.displaySmall),
               ],
             ),
@@ -176,7 +180,7 @@ class ExpensesWidget1 extends StatelessWidget {
                     Text(tr('expenses.obyekt'),
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(item.location,
+                    Text(item!.location,
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -186,7 +190,7 @@ class ExpensesWidget1 extends StatelessWidget {
                     Text(tr('expenses.harajat'),
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(item.costtype,
+                    Text(item!.costtype,
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -203,7 +207,7 @@ class ExpensesWidget1 extends StatelessWidget {
                 Text(tr('expenses.izoh'),
                     style: AppTheme.data.textTheme.bodyLarge!
                         .copyWith(color: Colors.grey)),
-                Text(item.name,
+                Text(item!.name,
                     style: AppTheme.data.textTheme.labelSmall!
                         .copyWith(color: Colors.grey)),
               ],
@@ -211,7 +215,7 @@ class ExpensesWidget1 extends StatelessWidget {
             Gap(ScreenSize.h12),
             SizedBox(
                 width: double.maxFinite,
-                child: Text(item.deskription, textAlign: TextAlign.left))
+                child: Text(item!.deskription, textAlign: TextAlign.left))
           ],
         ),
       ),

@@ -25,9 +25,17 @@ class HomePage extends StatelessWidget {
                     onTap: (i) => cubit.nextPage(i),
                     backgroundColor: AppTheme.colors.primary.withOpacity(0.05),
                     duration: const Duration(milliseconds: 1600),
-                    items: [
-                      /// Home
-                      SalomonBottomBarItem(
+                    items: salomonBar(cubit.model?.status=='admin'))));
+      }),
+    );
+  }
+
+
+   List<SalomonBottomBarItem> salomonBar(bool check){
+     if(check){
+      return [
+            /// Dashboard
+         SalomonBottomBarItem(
                           icon: SvgPicture.asset(
                             AppIcons.home,
                             height: 25.h,
@@ -40,7 +48,7 @@ class HomePage extends StatelessWidget {
                             height: 35.h,
                           )),
 
-                      /// Likes
+                      /// Expenses
                       SalomonBottomBarItem(
                           icon: SvgPicture.asset(
                             AppIcons.cost,
@@ -53,7 +61,8 @@ class HomePage extends StatelessWidget {
                             color: AppTheme.colors.primary,
                             height: 35.h,
                           )),
-
+                     
+                       /// Transfer
                       SalomonBottomBarItem(
                           icon: SvgPicture.asset(
                             AppIcons.transfer,
@@ -67,22 +76,21 @@ class HomePage extends StatelessWidget {
                             height: 35.h,
                           )),
 
-                      // /// Search
-                      // SalomonBottomBarItem(
-                      //   icon: SvgPicture.asset(
-                      //     AppIcons.addMoney,
-                      //     height: 25.h,
-                      //   ),
-                      //   title: Text(tr('inputs.title')),
-                      //   activeIcon: SvgPicture.asset(
-                      //     AppIcons.addMoney,
-                      //     color: AppTheme.colors.primary,
-                      //     height: 35.h,
-                      //   ),
-                      //   selectedColor: AppTheme.colors.primary,
-                      // ),
+                         /// Report
+                     SalomonBottomBarItem(
+                          icon: SvgPicture.asset(
+                            AppIcons.report,
+                            height: 25.h,
+                          ),
+                          title: Text(tr('report.title')),
+                          selectedColor: AppTheme.colors.primary,
+                          activeIcon: SvgPicture.asset(
+                            AppIcons.report,
+                            color: AppTheme.colors.primary,
+                            height: 35.h,
+                          )),    
 
-                      /// Profile
+                      /// Setting
                       SalomonBottomBarItem(
                         icon: SvgPicture.asset(
                           AppIcons.setting,
@@ -96,45 +104,63 @@ class HomePage extends StatelessWidget {
                         ),
                         selectedColor: AppTheme.colors.primary,
                       ),
-                    ])));
-      }),
-    );
+      ];
+     }
+     return [
+            SalomonBottomBarItem(
+                          icon: SvgPicture.asset(
+                            AppIcons.home,
+                            height: 25.h,
+                          ),
+                          title: Text(tr('dashboard.title')),
+                          selectedColor: AppTheme.colors.primary,
+                          activeIcon: SvgPicture.asset(
+                            AppIcons.home,
+                            color: AppTheme.colors.primary,
+                            height: 35.h,
+                          )),
+
+                      /// Expenses
+                      SalomonBottomBarItem(
+                          icon: SvgPicture.asset(
+                            AppIcons.cost,
+                            height: 25.h,
+                          ),
+                          title: Text(tr('expenses.title')),
+                          selectedColor: AppTheme.colors.primary,
+                          activeIcon: SvgPicture.asset(
+                            AppIcons.cost,
+                            color: AppTheme.colors.primary,
+                            height: 35.h,
+                          )),
+                     
+                       /// Transfer
+                      SalomonBottomBarItem(
+                          icon: SvgPicture.asset(
+                            AppIcons.transfer,
+                            height: 25.h,
+                          ),
+                          title: Text(tr('transfer.title')),
+                          selectedColor: AppTheme.colors.primary,
+                          activeIcon: SvgPicture.asset(
+                            AppIcons.transfer,
+                            color: AppTheme.colors.primary,
+                            height: 35.h,
+                          )),
+ 
+                      /// Setting
+                      SalomonBottomBarItem(
+                        icon: SvgPicture.asset(
+                          AppIcons.setting,
+                          height: 25.h,
+                        ),
+                        title: Text(tr('settings.title')),
+                        activeIcon: SvgPicture.asset(
+                          AppIcons.setting,
+                          color: AppTheme.colors.primary,
+                          height: 35.h,
+                        ),
+                        selectedColor: AppTheme.colors.primary,
+                      ),];
   }
 }
-// BottomNavigationBar(
-//             type: BottomNavigationBarType.fixed,
-//             currentIndex: 0,
-//             showSelectedLabels: true,
-//             showUnselectedLabels: true,
-//             items: [
-//               BottomNavigationBarItem(
-//                 label: 'Dashboard',
-//                 tooltip: 'Search',
-//                 icon: SvgPicture.asset(
-//                   AppIcons.home,
-//                   height: 30.h,
-//                 ),
-//               ),
-//               BottomNavigationBarItem(
-//                 label: 'Xarajatlar',
-//                 icon: SvgPicture.asset(
-//                   AppIcons.cost,
-//                   height: 30.h,
-//                 ),
-//               ),
-//               BottomNavigationBarItem(
-//                 label: 'Kirimlar',
-//                 icon: SvgPicture.asset(
-//                   AppIcons.addMoney,
-//                   height: 30.h,
-//                 ),
-//               ),
-//               BottomNavigationBarItem(
-//                 label: 'Sozlamalar',
-//                 icon: SvgPicture.asset(
-//                   AppIcons.setting,
-//                   height: 30.h,
-//                 ),
-//               ),
-//             ],
-//           ),

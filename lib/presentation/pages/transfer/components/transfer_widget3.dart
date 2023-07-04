@@ -76,6 +76,7 @@ class TransferWidget3 extends StatelessWidget {
               TextField(
                 controller: amountController,
                 keyboardType: TextInputType.number,
+                enableInteractiveSelection: false,
                 maxLines: 1,
                 inputFormatters: [
                   MaskTextInputFormatter(
@@ -100,6 +101,7 @@ class TransferWidget3 extends StatelessWidget {
               TextField(
                 controller: descriptionController,
                 keyboardType: TextInputType.number,
+                enableInteractiveSelection: false,
                 maxLines: 7,
                 decoration: InputDecoration(
                     hintText: tr('transfer.izoh'),

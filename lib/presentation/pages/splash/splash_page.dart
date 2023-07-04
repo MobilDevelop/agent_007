@@ -18,6 +18,8 @@ class SplashScreen extends StatelessWidget {
           context.go(Routes.home.path);
          }else if(state is SplashScreenNextRegistration){
           context.go(Routes.registration.path);
+         } else if(state is SplashScreenNextSecret){
+          context.go(Routes.security.path);
          }
       },
        child: Builder(

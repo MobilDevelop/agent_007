@@ -7,7 +7,7 @@ class DashboardCubit extends Cubit<DashboardState> {
   DashboardCubit() : super(DashboardInitial()){
     init();
   } 
-  DashboardModel model =DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: '',payed: '');
+  DashboardModel model =DashboardModel(allPrice: '0.0', currentBalans: '1.0', expenses: '0.0', name: '',payed: '',status: '');
   
   bool loading =true;
 

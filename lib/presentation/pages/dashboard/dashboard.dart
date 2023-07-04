@@ -1,7 +1,6 @@
 import 'package:agent_007/aplication/dashboard/dashboard_cubit.dart';
 import 'package:agent_007/aplication/dashboard/dashboard_state.dart';
 import 'package:agent_007/infrasutruktura/helper_method/helper_method.dart';
-import 'package:agent_007/presentation/assets/res/screen_size.dart';
 import 'package:agent_007/presentation/assets/theme/app_theme.dart';
 import 'package:agent_007/presentation/pages/animation_loading/loading.dart';
 import 'package:agent_007/presentation/pages/dashboard/components/home_widget1.dart';

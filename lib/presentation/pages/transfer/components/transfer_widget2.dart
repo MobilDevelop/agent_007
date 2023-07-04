@@ -29,25 +29,48 @@ class TransferWidget2 extends StatelessWidget {
     }
      return f_bounce.Bounce(
       onPressed: () {
-        item!.status=='Bajarilmoqda...'
+        (item!.cancel && item!.recived)
             ? AwesomeDialog(
                     context: context,
                     animType: AnimType.scale,
                     dialogType: DialogType.success,
                     body: Center(
                       child: Text(
-                        "O'tkazmani tasdiqlash",
+                        tr('universal.confirmmessage'),
                         style: AppTheme.data.textTheme.displaySmall,
                       ),
                     ),
-                    btnCancelText: tr('transfer.cancel'),
-                    btnOkText: tr('transfer.ok'),
-                    btnOkOnPress: () => ontapConfirm(item!.id),
+                    btnCancelText: tr('universal.yoq'),
+                    btnOkText: tr('universal.ha'),
+                    btnOkOnPress: (){
+                      ontapConfirm(item!.id);
+                    },
                     btnCancelOnPress: () {
                       ontapCancel(item!.id);
                     })
                 .show()
-            : Container();
+            : item!.cancel? AwesomeDialog(
+                    context: context,
+                    animType: AnimType.scale,
+                    dialogType: DialogType.error,
+                    body: Center(
+                      child: Text(
+                        tr('transfer.bekor'),
+                        style: AppTheme.data.textTheme.displaySmall,
+                      ),
+                    ),
+                    btnCancelText: tr('universal.yoq'),
+                    btnOkText: tr('universal.ha'),
+                    btnCancelColor: AppTheme.colors.green,
+                    btnOkColor: AppTheme.colors.red,
+                    btnOkOnPress: (){
+                       ontapCancel(item!.id);
+                    },
+                    btnCancelOnPress: () {
+                     
+                    })
+                    
+                .show(): Container();
       },
       duration: item!.status=='Bajarilmoqda...'
           ? const Duration(milliseconds: 150)

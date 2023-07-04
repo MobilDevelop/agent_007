@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
-class TransferWidget1 extends StatelessWidget {
-  const TransferWidget1({
+class ExpensesWidget2 extends StatelessWidget {
+  const ExpensesWidget2({
     super.key,
     required this.sizeWidth,
     required this.animationSize1,
@@ -38,18 +38,18 @@ class TransferWidget1 extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppTheme.colors.secondary,
                       border: Border.all(
-                        color: AppTheme.colors.green,
+                        color: AppTheme.colors.primary,
                         width: 2
                       ),
                       borderRadius: BorderRadius.circular(15.r)),
                   child: animationSize1 == sizeWidth * 0.15
                       ? SvgPicture.asset(
                           AppIcons.left,
-                          color: AppTheme.colors.green,
+                          color: AppTheme.colors.primary,
                         )
-                      : Text(tr('transfer.kirim')
+                      : Text(tr('expenses.tolanganlar')
                       ,maxLines: 1
-                      ,style: AppTheme.data.textTheme.headlineSmall!.copyWith(color: AppTheme.colors.green))),
+                      ,style: AppTheme.data.textTheme.headlineSmall!.copyWith(color: AppTheme.colors.primary))),
             ),
             Gap(sizeWidth * 0.04),
             GestureDetector(
@@ -72,7 +72,7 @@ class TransferWidget1 extends StatelessWidget {
                           AppIcons.right1,
                           color: AppTheme.colors.red,
                         )
-                      :Text(tr('transfer.chiqim')
+                      :Text(tr('expenses.tolanmaganlar')
                       ,maxLines: 1
                       ,style: AppTheme.data.textTheme.headlineSmall!.copyWith(color: AppTheme.colors.red))),
             )

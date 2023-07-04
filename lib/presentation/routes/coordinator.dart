@@ -1,7 +1,7 @@
 import 'package:agent_007/presentation/pages/add_expenses/add_expenses_page.dart';
 import 'package:agent_007/presentation/pages/home/home_page.dart';
-import 'package:agent_007/presentation/pages/login/login_page.dart';
 import 'package:agent_007/presentation/pages/registration/registration_page.dart';
+import 'package:agent_007/presentation/pages/security/security_page.dart';
 import 'package:agent_007/presentation/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -21,6 +21,14 @@ final GoRouter router = GoRouter(
           key: state.pageKey,
           child: const SplashScreen(),
         ),
+      ), 
+      GoRoute(
+        name: Routes.security.name,
+        path: Routes.security.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: const SecurityPage(),
+        ),
       ),
       GoRoute(
         name: Routes.addexpenses.name,
@@ -36,14 +44,6 @@ final GoRouter router = GoRouter(
         pageBuilder: (context, state) => MaterialPage<void>(
           key: state.pageKey,
           child: const HomePage(),
-        ),
-      ),
-      GoRoute(
-        name: Routes.login.name,
-        path: Routes.login.path,
-        pageBuilder: (context, state) => MaterialPage<void>(
-          key: state.pageKey,
-          child: const LoginPage(),
         ),
       ),
       GoRoute(

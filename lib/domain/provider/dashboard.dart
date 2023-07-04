@@ -15,6 +15,7 @@ class DashboardService {
       EasyLoading.showInfo(error.toString());
       return Future.value(DashboardModel(
           allPrice: '0.0',
+          status: '',
           currentBalans: '1.0',
           expenses: '0.0',
           name: '',

@@ -22,7 +22,9 @@ class RegistrationCubib extends Cubit<RegistrationState> {
       emit(RegistrationInitial());
       Registration registration = Registration(login: login,parol: password);
       bool check = await RegistrationService().registration(registration);
-      if(check){emit(RegistrationNextHome());}else{
+      if(check){
+        emit(RegistrationNextHome());
+        }else{
         loading=false;
         emit(const RegistrationIsEmpty("server error"));
       } 

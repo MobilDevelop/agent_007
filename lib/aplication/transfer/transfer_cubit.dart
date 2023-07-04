@@ -69,6 +69,9 @@ class TransferCubit extends Cubit<TransferState> {
 
       bool check = await TransferService().moneyTranfer(transfer);
       if (check) {
+        pagination=1;
+        paginationCheck=true;
+        items.clear();
         getAllItems();
         emit(TransferSucces(tr("universal.succes")));
       } else {
@@ -80,7 +83,11 @@ class TransferCubit extends Cubit<TransferState> {
   void confirmation(int id) async {
     bool check = await TransferService().transferConfirmation(id);
     if (check) {
-     getAllItems();
+      emit(TransferSucces(tr('universal.confirmation')));
+      pagination=1;
+      paginationCheck=true;
+      items.clear();
+      getAllItems();
     } else {
       emit(TransferError(tr("universal.err")));
     }
@@ -89,7 +96,11 @@ class TransferCubit extends Cubit<TransferState> {
   void cancellation(int id)async{
     bool check = await TransferService().transferCancellation(id);
     if (check) {
-     getAllItems();
+      emit(TransferSucces(tr('universal.cancellation')));
+      pagination=1;
+      paginationCheck=true;
+      items.clear();
+      getAllItems();
     } else {
       emit(TransferError(tr("universal.err")));
     }

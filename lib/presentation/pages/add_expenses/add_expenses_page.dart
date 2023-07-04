@@ -107,6 +107,7 @@ class AddExpensesPage extends StatelessWidget {
                             TextField(
                         controller: cubit.paymentController,
                         keyboardType: TextInputType.number,
+                        enableInteractiveSelection: false,
                         maxLines: 1,   
                         inputFormatters: [
                          MaskTextInputFormatter(
@@ -137,6 +138,7 @@ class AddExpensesPage extends StatelessWidget {
                       TextField(
                         controller: cubit.commitController,
                         keyboardType: TextInputType.number,
+                        enableInteractiveSelection: false,
                         maxLines: 7,
                         decoration: InputDecoration(
                           hintText: tr('addexpenses.izoh'),

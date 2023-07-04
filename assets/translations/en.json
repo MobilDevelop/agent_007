@@ -19,6 +19,9 @@
         "xarajat":"Xarajatlar:",
         "qarzdorlik":"Qarzdorlik:"
     },
+    "report":{
+        "title":"Hisobotlar"
+    },
     "expenses":{
         "title":"Xarajatlar",
         "message":"Muvofaqqiyatli saqlandi",
@@ -30,22 +33,30 @@
         "izoh":"Izoh:",
         "empty":"Ma'lumotlarni to'ldiring",
         "error":"Hatolik yuz berdi!",
-        "tolov":"To'lov qilish"
+        "tolov":"To'lov qilish",
+        "tolanganlar":"To'langanlar",
+        "tolanmaganlar":"To'lanmaganlar"
     },
     "transfer":{
         "title":"O'tkazmalar",
         "pulotkazish":"Pul o'tkazish",
-        "cancel":"Bekor qilish",
+        "cancel":"Berkitish",
+        "cncl":"Bekor qilish",
         "ok":"Tasdiqlash",
+        "kirim":"Kirimlar",
+        "chiqim":"Chiqimlar",
         "izoh":"Izoh...",
         "amount":"Summani kiriting",
         "agent":"Agentni tanlang",
         "summa":"O'tkazma summasi:",
-        "otkazuvchi":"O'tkazuvchi:"
+        "otkazuvchi":"O'tkazuvchi:",
+        "bekor":"O'tkazmani bekor qilmoqchimisiz?"
+
 
     },
-    "inputs":{
-      "title":"Kirimlar"
+    "security":{
+      "tasdiqlash":"Tasdiqlash",
+      "title":"Parolni kiriting"
     },
     "settings":{
         "title":"Sozlamalar"
@@ -53,7 +64,14 @@
     "universal":{
         "error":"Iltimos dasturni qayta ishga tushuring",
         "succes":"Amaliyot bajarildi",
-         "err":"Qandaydir hatolik yuz berdi"
+         "err":"Qandaydir hatolik yuz berdi",
+         "ha":"Ha",
+         "yoq":"Yo'q",
+         "cancellation":"O'tkazma bekor qilindi",
+         "confirmation":"O'tkazilgan summa qabul qilindi",
+         "confirmmessage":"Yuborilgan summani qabul qilasizmi?"
+
+
     }
 
     

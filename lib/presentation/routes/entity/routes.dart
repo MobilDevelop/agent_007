@@ -18,9 +18,9 @@ class Routes implements Coordinate {
     name: 'splash_page',
     path: '/splash',
   );
-  static const login = Routes._(
-    name: 'login_page',
-    path: '/login',
+   static const security = Routes._(
+    name: 'security_page',
+    path: '/security',
   );
   static const registration = Routes._(
     name: 'registration_page',

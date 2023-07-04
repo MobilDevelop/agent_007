@@ -9,6 +9,8 @@ class GetTransfer {
   String status;
   String date;
   String type;
+  bool recived;
+  bool cancel;
 
   GetTransfer(
       {required this.id,
@@ -17,14 +19,18 @@ class GetTransfer {
       required this.description,
       required this.status,
       required this.type,
+      required this.cancel,
+      required this.recived,
       required this.date});
 
   factory GetTransfer.fromJson(Map<String, dynamic> json) => GetTransfer(
       id: json['id'] ?? 0,
-      title: json['cashier']['full_name'] ?? '',
+      title: json ['cashier']['full_name'] ?? '',
       amount: json['amount'].toString(),
       description: json['description'] ?? '',
       status: json['status'] ?? '',
       type: json['type']??'',
+      cancel: json['cancel_btn'],
+      recived: json['open_received_btn'],
       date: json['date'] ?? '');
 }
