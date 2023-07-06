@@ -137,7 +137,6 @@ class AddExpensesPage extends StatelessWidget {
                             Gap(ScreenSize.h24),
                       TextField(
                         controller: cubit.commitController,
-                        keyboardType: TextInputType.number,
                         enableInteractiveSelection: false,
                         maxLines: 7,
                         decoration: InputDecoration(

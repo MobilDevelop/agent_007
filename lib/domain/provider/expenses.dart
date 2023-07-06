@@ -14,11 +14,9 @@ class ExpensesService {
     try {
       Response response =
           await dio.get(Constants.expenses, data: {"page": pagination});
-      print(response);
       List<ExpensesInfo> items = infoFromMap(response.data['data']);
       return Future.value(items);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(infoFromMap([]));
     }
   }
@@ -30,7 +28,6 @@ class ExpensesService {
       print(response);
       return Future.value(true);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(false);
     }
   }
@@ -39,11 +36,10 @@ class ExpensesService {
     try {
       Response response = await dio.put(Constants.payment + id.toString(),
           data: payment.toJson());
-      print(response);
+      EasyLoading.showSuccess(response.data['message'].toString());
       return Future.value(true);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
-      return Future.value(false);
+  return Future.value(false);
     }
   }
 
@@ -52,7 +48,6 @@ class ExpensesService {
       Response response = await dio.get(Constants.location);
       return Future.value(locationFromMap(response.data['data']));
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(locationFromMap([]));
     }
   }
@@ -62,7 +57,6 @@ class ExpensesService {
       Response response = await dio.get(Constants.cosyType);
       return Future.value(costTypeFromMap(response.data['data']));
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(locationFromMap([]));
     }
   }

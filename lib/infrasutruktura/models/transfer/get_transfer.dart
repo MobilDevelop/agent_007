@@ -4,6 +4,7 @@ List<GetTransfer> transferFromMap(List list) => List<GetTransfer>.from(
 class GetTransfer {
   int id;
   String title;
+  String object;
   String amount;
   String description;
   String status;
@@ -15,6 +16,7 @@ class GetTransfer {
   GetTransfer(
       {required this.id,
       required this.title,
+      required this.object,
       required this.amount,
       required this.description,
       required this.status,
@@ -26,6 +28,7 @@ class GetTransfer {
   factory GetTransfer.fromJson(Map<String, dynamic> json) => GetTransfer(
       id: json['id'] ?? 0,
       title: json ['cashier']['full_name'] ?? '',
+      object: json ['source_object']['full_name'] ?? '',
       amount: json['amount'].toString(),
       description: json['description'] ?? '',
       status: json['status'] ?? '',

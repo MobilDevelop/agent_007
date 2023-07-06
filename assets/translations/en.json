@@ -50,7 +50,8 @@
         "agent":"Agentni tanlang",
         "summa":"O'tkazma summasi:",
         "otkazuvchi":"O'tkazuvchi:",
-        "bekor":"O'tkazmani bekor qilmoqchimisiz?"
+        "bekor":"O'tkazmani bekor qilmoqchimisiz?",
+        "object":"Obyekt:"
 
 
     },

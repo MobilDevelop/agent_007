@@ -54,7 +54,7 @@ class Dashboard extends StatelessWidget {
                                   Expanded(
                                   flex: 1,
                                   child: HomeWidget3(
-                                    coast: Helper.toProcessCost(cubit.model.payed),
+                                    coast: Helper.toProcessCost((int.parse(cubit.model.expenses)-int.parse(cubit.model.payed)).toString()),
                                     title: tr('dashboard.qarzdorlik'),
                                   )),
                             ],

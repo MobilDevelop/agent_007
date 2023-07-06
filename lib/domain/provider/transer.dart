@@ -14,10 +14,9 @@ class TransferService {
   Future<List<GetTransfer>> getTransfer(int page) async {
     try {
       Response response = await dio.get(Constants.transfer,data: {'page':page});
-      print(response);
+    
       return Future.value(transferFromMap(response.data['data']));
-    } catch (error) {
-      EasyLoading.showInfo(error.toString());
+    } catch (error) { 
       return Future.value(transferFromMap([]));
     }
   }
@@ -26,10 +25,9 @@ class TransferService {
     try {
       Response response =
           await dio.post(Constants.moneytransfer, data: transfer.toJson());
-      print(response);
+   EasyLoading.showSuccess(response.data['message'].toString());
       return Future.value(true);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(false);
     }
   }
@@ -37,10 +35,9 @@ class TransferService {
   Future<bool> transferConfirmation(int id) async {
     try {
       Response response = await dio.put(Constants.confirmation + id.toString());
-      print(response);
+   EasyLoading.showSuccess(response.data['message'].toString());
       return Future.value(true);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(false);
     }
   }
@@ -48,10 +45,9 @@ class TransferService {
   Future<bool> transferCancellation(int id) async {
     try {
       Response response = await dio.put(Constants.cancellation + id.toString());
-      print(response);
+      EasyLoading.showSuccess(response.data['message'].toString());
       return Future.value(true);
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(false);
     }
   }
@@ -62,7 +58,6 @@ class TransferService {
       print(response);
       return Future.value(allAgentFromMap(response.data['data']));
     } catch (error) {
-      EasyLoading.showInfo(error.toString());
       return Future.value(allAgentFromMap([]));
     }
   }

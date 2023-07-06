@@ -128,10 +128,10 @@ class TransferWidget2 extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(tr('transfer.summa'),
+                    Text(tr('transfer.object'),
                         style: AppTheme.data.textTheme.bodyLarge!
                             .copyWith(color: Colors.grey)),
-                    Text(Helper.toProcessCost(item!.amount),
+                    Text(item!.object,
                         style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
@@ -141,24 +141,39 @@ class TransferWidget2 extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(tr('expenses.status'),
-                        style: AppTheme.data.textTheme.bodyLarge!
-                            .copyWith(color: Colors.grey)),
-                    Container(
-                      margin: EdgeInsets.only(left: ScreenSize.w6),
-                      height: 20.h,
-                      width: 20.w,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4.r),
-                          color: item!.status=="Bekor qilindi"?
-                               AppTheme.colors.red: item!.status=="Yakunlandi"? AppTheme.colors.primary:AppTheme.colors.green),
-                    )
+                    Row(
+                      children: [
+                        Text(tr('expenses.status'),
+                            style: AppTheme.data.textTheme.bodyLarge!
+                                .copyWith(color: Colors.grey)),
+                        Container(
+                          margin: EdgeInsets.only(left: ScreenSize.w6),
+                          height: 20.h,
+                          width: 20.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4.r),
+                              color: item!.status=="Bekor qilindi"?
+                                   AppTheme.colors.red: item!.status=="Yakunlandi"? AppTheme.colors.primary:AppTheme.colors.green),
+                        )
+                      ],
+                    ),
+                    Text(item!.status,
+                    style: AppTheme.data.textTheme.displaySmall),
                   ],
                 ),
-                Text(item!.status,
-                    style: AppTheme.data.textTheme.displaySmall),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(tr('transfer.summa'),
+                        style: AppTheme.data.textTheme.bodyLarge!
+                            .copyWith(color: Colors.grey)),
+                    Text(Helper.toProcessCost(item!.amount),
+                        style: AppTheme.data.textTheme.displaySmall),
+                  ],
+                ),
               ],
             ),
             Gap(ScreenSize.h16),
