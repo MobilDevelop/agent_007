@@ -57,10 +57,15 @@
     },
     "security":{
       "tasdiqlash":"Tasdiqlash",
-      "title":"Parolni kiriting"
+      "title":"Parolni kiriting",
+      "title1":"Yangi parolni kiriting"
     },
-    "settings":{
-        "title":"Sozlamalar"
+    "setting":{
+        "title":"Sozlamalar",
+        "password":"Parol bilan kirish",
+        "edit":"Parolni o'zgartirish",
+        "biometrik":"Biometrik malumotlar bilan kirish",
+        "close":"Hisobdan chiqish"
     },
     "universal":{
         "error":"Iltimos dasturni qayta ishga tushuring",
@@ -70,7 +75,8 @@
          "yoq":"Yo'q",
          "cancellation":"O'tkazma bekor qilindi",
          "confirmation":"O'tkazilgan summa qabul qilindi",
-         "confirmmessage":"Yuborilgan summani qabul qilasizmi?"
+         "confirmmessage":"Yuborilgan summani qabul qilasizmi?",
+         "close":"Rostdanhan hisobingizdan chiqmoqchimisz?"
 
 
     }

@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
               create: (context) => AppManagerCubit()..init()),  
           BlocProvider(create: (context) => RegistrationCubib()),
           BlocProvider(create: (context) => AddExpensesCubit()),
-          BlocProvider(create: (context) => SettingsCubit()),
+        
         ],
         child: ScreenUtilInit(
           designSize: const Size(375, 812),

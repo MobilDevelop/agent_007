@@ -12,12 +12,12 @@ class DashboardService {
       return Future.value(model);
     } catch (error) {
       return Future.value(DashboardModel(
-          allPrice: '0.0',
+          allPrice: '0',
           status: '',
-          currentBalans: '1.0',
-          expenses: '0.0',
+          currentBalans: '1',
+          expenses: '0',
           name: '',
-          payed: ''));
+          payed: '0'));
     }
   }
 }

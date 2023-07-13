@@ -37,6 +37,7 @@ class TransferWidget2 extends StatelessWidget {
                     body: Center(
                       child: Text(
                         tr('universal.confirmmessage'),
+                        textAlign: TextAlign.center,
                         style: AppTheme.data.textTheme.displaySmall,
                       ),
                     ),
@@ -56,6 +57,7 @@ class TransferWidget2 extends StatelessWidget {
                     body: Center(
                       child: Text(
                         tr('transfer.bekor'),
+                        textAlign: TextAlign.center,
                         style: AppTheme.data.textTheme.displaySmall,
                       ),
                     ),

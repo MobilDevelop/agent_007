@@ -1,6 +1,6 @@
 class Constants {
-  static const baseUrl = 'http://192.168.13.145:5600';
-  //static const baseUrl = 'https://abdullayevdilshodbek.jprq.live';
+  //static const baseUrl = 'http://192.168.13.145:5600';
+  static const baseUrl = 'http://5.181.109.224:4000';
 
   static String additional = '/api/';
 

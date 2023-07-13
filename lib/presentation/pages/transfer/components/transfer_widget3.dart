@@ -100,7 +100,6 @@ class TransferWidget3 extends StatelessWidget {
               Gap(ScreenSize.h24),
               TextField(
                 controller: descriptionController,
-                keyboardType: TextInputType.number,
                 enableInteractiveSelection: false,
                 maxLines: 7,
                 decoration: InputDecoration(

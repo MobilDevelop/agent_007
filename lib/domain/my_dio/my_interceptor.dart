@@ -27,7 +27,6 @@ class MyInterceptor extends Interceptor {
     String token = await LocalSource.getInfo("token");
     options.headers['Authorization'] = 'Bearer $token';
     options.headers['Content-Type'] = 'application/json';
-
     options.baseUrl = baseUrl;
     super.onRequest(options, handler);
   }

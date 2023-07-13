@@ -1,20 +1,48 @@
 import 'package:agent_007/aplication/security/security_state.dart';
+import 'package:agent_007/infrasutruktura/local_source/local_source.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:local_auth/local_auth.dart';
 
 class SecurityCubit extends Cubit<SecurityState>{
-  SecurityCubit():super(SecurityInitial());
+  SecurityCubit(String type):super(SecurityInitial()){
+    init();
+  }
+  
 
   String index = "";
   final controller = TextEditingController();
   bool loading = false;
+  String succes ='';
+  final LocalAuthentication auth = LocalAuthentication();
+
+
+  void init()async{
+    final bool canAuthenticateWithBiometrics = await auth.canCheckBiometrics;
+    final bool canAuthenticate =  canAuthenticateWithBiometrics || await auth.isDeviceSupported();
+    succes =await LocalSource.getInfo('pass');
+   
+    emit(SecurityInitial());
+   
+  }
+
+
+    
+
+    chooseType(String type){
+      if(type.isEmpty){
+        onCheck();
+      }else{
+        onEdit();
+      }
+    }
 
 
    void onCheck(){
     loading = true;
     emit(SecurityInitial());
-    if(index.length>5){
-      if(index=="123456"){
+    if(index.length==succes.length){
+      if(index==succes){
     emit(SecurityNextHome());
     }else{
       loading =false;
@@ -28,6 +56,19 @@ class SecurityCubit extends Cubit<SecurityState>{
       controller.clear();
       emit(SecurityError("Parol noto'g'ri kiritildi"));
     }
+   }
+
+
+   onEdit(){
+      loading =true;
+      emit(SecurityInitial());
+      if(index.length>=4){
+       LocalSource.putInfo("pass", index);
+       emit(SecuritySucces());
+      }else{
+        loading=false;
+        emit(SecurityError("Parol uzunligi 4 tadan kam bo'lmasligi kerak"));
+      }
    }
 
 

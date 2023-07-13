@@ -12,11 +12,11 @@ import 'package:go_router/go_router.dart';
 import 'components/security_widget.dart';
 
 class SecurityPage extends StatelessWidget {
-  const SecurityPage({super.key});
-
+  const SecurityPage({super.key, required this.type});
+  final String type;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => SecurityCubit(),
+    return BlocProvider(create: (context) => SecurityCubit(type),
      child:  BlocListener<SecurityCubit,SecurityState>(
       listener: (context, state) {
         if(state is SecurityNextHome){
@@ -35,6 +35,8 @@ class SecurityPage extends StatelessWidget {
               ),
             ),
           );
+        }else if(state is SecuritySucces){
+          context.pop(context);
         }
       },
        child: Builder(builder: (context) {
@@ -46,7 +48,7 @@ class SecurityPage extends StatelessWidget {
               elevation: 0,
               backgroundColor: AppTheme.colors.background,
               centerTitle: true,
-              title:Text("Parolni kiriting",style: AppTheme.data.textTheme.displaySmall!
+              title:Text(type.isEmpty?"Parolni kiriting":"Yangi parolni kiriting",style: AppTheme.data.textTheme.displaySmall!
                                   .copyWith(color: AppTheme.colors.primary)),
             ),
             body: Stack(
@@ -164,7 +166,7 @@ class SecurityPage extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: ScreenSize.w20),
                           child: f_bounce.Bounce(
                            duration: const Duration(milliseconds: 150),
-                            onPressed:()=>cubit.onCheck(),
+                            onPressed:()=>cubit.chooseType(type),
                             child: Container(
                               height: 60,
                               width: double.infinity,

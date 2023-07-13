@@ -45,7 +45,7 @@ class HomeWidget2 extends StatelessWidget {
             height: 170.w,
             width: 170.w,
             child: CircularProgressIndicator(
-              value: double.parse(model.expenses) /double.parse(model.currentBalans),
+              value: double.parse(model.expenses) /(double.parse(model.currentBalans)==0.0?1.0:double.parse(model.currentBalans)),
               color: AppTheme.colors.gray,
               backgroundColor: AppTheme.colors.primary,
               strokeWidth: 45,

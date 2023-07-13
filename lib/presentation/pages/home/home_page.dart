@@ -17,15 +17,18 @@ class HomePage extends StatelessWidget {
       child: Builder(builder: (context) {
         final cubit = context.read<HomeCubit>();
         return BlocBuilder<HomeCubit, HomeState>(
-            builder: (_, state) => Scaffold(
-                backgroundColor: AppTheme.colors.gray100,
-                body: cubit.windows[cubit.currentIndex],
-                bottomNavigationBar: SalomonBottomBar(
-                    currentIndex: cubit.currentIndex,
-                    onTap: (i) => cubit.nextPage(i),
-                    backgroundColor: AppTheme.colors.primary.withOpacity(0.05),
-                    duration: const Duration(milliseconds: 1600),
-                    items: salomonBar(cubit.model?.status=='admin'))));
+            builder: (_, state) => WillPopScope(
+              onWillPop:()=> cubit.onWillPop(),
+              child: Scaffold(
+                  backgroundColor: AppTheme.colors.gray100,
+                  body: cubit.windows[cubit.currentIndex],
+                  bottomNavigationBar: SalomonBottomBar(
+                      currentIndex: cubit.currentIndex,
+                      onTap: (i) => cubit.nextPage(i),
+                      backgroundColor: AppTheme.colors.primary.withOpacity(0.05),
+                      duration: const Duration(milliseconds: 1600),
+                      items: salomonBar(cubit.model?.status=='admin'))),
+            ));
       }),
     );
   }
@@ -96,7 +99,7 @@ class HomePage extends StatelessWidget {
                           AppIcons.setting,
                           height: 25.h,
                         ),
-                        title: Text(tr('settings.title')),
+                        title: Text(tr('setting.title')),
                         activeIcon: SvgPicture.asset(
                           AppIcons.setting,
                           color: AppTheme.colors.primary,
@@ -154,7 +157,7 @@ class HomePage extends StatelessWidget {
                           AppIcons.setting,
                           height: 25.h,
                         ),
-                        title: Text(tr('settings.title')),
+                        title: Text(tr('setting.title')),
                         activeIcon: SvgPicture.asset(
                           AppIcons.setting,
                           color: AppTheme.colors.primary,

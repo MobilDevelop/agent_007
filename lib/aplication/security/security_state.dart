@@ -7,6 +7,8 @@ class SecurityInitial extends SecurityState{}
 
 class SecurityNextHome extends SecurityState{}
 
+class SecuritySucces extends SecurityState{}
+
 
 class SecurityError extends SecurityState{
   String message;

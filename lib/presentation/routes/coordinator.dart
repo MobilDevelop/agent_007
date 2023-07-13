@@ -27,7 +27,7 @@ final GoRouter router = GoRouter(
         path: Routes.security.path,
         pageBuilder: (context, state) => MaterialPage<void>(
           key: state.pageKey,
-          child: const SecurityPage(),
+          child:  SecurityPage(type: state.extra as String),
         ),
       ),
       GoRoute(

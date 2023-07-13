@@ -49,6 +49,7 @@ dependencies:
   dropdown_search: ^3.0.1
   flutter_rounded_date_picker: ^3.0.2
   flutter_easyloading: ^3.0.5
+  local_auth: ^2.1.6
 
   # State management
   flutter_bloc: ^8.1.2

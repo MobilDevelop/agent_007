@@ -33,7 +33,7 @@ class SettingsCubit extends Cubit<SettingsState> {
   void checked1(){
     check1=!check1;
     if(check1){
-      LocalSource.putInfo("pass", "pass");
+      emit(SettingNextEdit());
     }else{
       LocalSource.putInfo("pass", "");
     }

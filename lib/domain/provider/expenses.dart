@@ -13,7 +13,7 @@ class ExpensesService {
   Future<List<ExpensesInfo>> getInfo(int pagination) async {
     try {
       Response response =
-          await dio.get(Constants.expenses, data: {"page": pagination});
+          await dio.get(Constants.expenses, data: {"page": pagination.toString()});
       List<ExpensesInfo> items = infoFromMap(response.data['data']);
       return Future.value(items);
     } catch (error) {

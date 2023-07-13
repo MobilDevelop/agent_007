@@ -16,7 +16,7 @@ class HomeWidget extends StatelessWidget {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.symmetric(
-          vertical: ScreenSize.h4, horizontal: ScreenSize.w12),
+          vertical: 2.h, horizontal: ScreenSize.w12),
       padding: EdgeInsets.symmetric(
           horizontal: ScreenSize.w10, vertical: ScreenSize.h6),
       alignment: Alignment.centerLeft,
@@ -37,7 +37,7 @@ class HomeWidget extends StatelessWidget {
             "${tr('dashboard.salom')} $name",
             style: AppTheme.data.textTheme.headlineMedium,
           ),
-          Gap(ScreenSize.h4),
+          Gap(2.h),
           Text(
             "${tr('dashboard.bugun')} ${Helper.formatDate()}",
             style: AppTheme.data.textTheme.headlineMedium,

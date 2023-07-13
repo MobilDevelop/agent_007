@@ -10,11 +10,11 @@ class DashboardModel{
 
   factory DashboardModel.fromJson(Map<String,dynamic> json)=>DashboardModel(
     name: json['user']['full_name']??'',
-    allPrice: json['monthly_income'].toString(),
-    currentBalans: json['cashbox']['balance']??'',
+    allPrice: json['monthly_income']??'0.0',
+    currentBalans: json['cashbox']['balance']??'1.0',
     status: json['user']['status'],
-    expenses: json['monthly_cost_total'].toString(),
-    payed: json['monthly_cost_payed'].toString()
+    expenses: json['monthly_cost_total']??'0.0',
+    payed: json['monthly_cost_payed']??'0.0'
   );
 
 }
